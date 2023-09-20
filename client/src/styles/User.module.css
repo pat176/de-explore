@@ -1,0 +1,36 @@
+.top {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top > h1 {
+    color: #DEF2FF;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #DEF2FF;
+    height: 20vh;
+    margin-top: 1rem;
+    
+}
+
+.balance>h2{
+    color: #2676A6;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+.balance>h1 {
+    font-weight: 600;
+    font-size: 64px;
+    padding: 0;
+    margin: 0;
+
+}
