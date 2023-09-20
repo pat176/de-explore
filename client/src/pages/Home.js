@@ -7,11 +7,10 @@ import { render } from 'react-dom'
 function App() {
   useEffect(() => {
     const Connect = async () => {
-      await window.ethereum.send("eth_requestAccounts");
-      const provider = await new ethers.providers.Web3Provider(window.ethereum);
-      const signer = await provider.getSigner();
-
-      console.log(signer);
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const accounts = await provider.send("eth_requestAccounts", []);
+      const contract = new ethers.Contract()
+      console.log(accounts[0])
     }
     Connect()
 
