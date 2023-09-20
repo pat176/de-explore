@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers"
+import 'boxicons'
+import styles from '../styles/User.module.css'
 
 const User = (props) => {
   const [bal, setBalance] = useState(0)
@@ -68,12 +70,46 @@ const User = (props) => {
   }, [props.contract])
   return (
     <>
-      {bal}
-      
-      <button onClick={() => setIsAddFunds(true)}>Deposit</button>
-      <button onClick={() => setIsWithdrawFunds(true)}>Withdraw</button>
-      <button onClick={() => setIsTransferFunds(true)}>Transfer</button>
-      <button onClick={() => setIsAddBeneficiary(true)}>Add Beneficiary</button>
+      <div className={styles.top}>
+        <h1>Dashboard</h1>
+        <box-icon name='user' color='#DEF2FF'></box-icon>
+      </div>
+      <div className={styles.balance}>
+          <h2>Avaialable Balance</h2>
+          <h1>BNB {bal}</h1>
+      </div>
+      <div className={styles.receipts}>
+
+      <h1>Recent Transactions</h1>
+      <div className={styles.box}>
+
+        <div className={styles.trnsc}>
+          <h1>Groceries</h1>
+          <h2>17 sept '23</h2>
+          <h3>$5.54</h3>
+        </div>
+
+        <div className={styles.trnsc}>
+          <h1>Groceries</h1>
+          <h2>17 sept '23</h2>
+          <h3>$5.54</h3>
+        </div>
+
+        <div className={styles.trnsc}>
+          <h1>Groceries</h1>
+          <h2>17 sept '23</h2>
+          <h3>$5.54</h3>
+        </div>
+
+      </div>
+
+    </div>
+    <div className={styles.bttns}>
+          <button onClick={() => setIsAddFunds(true)} className={styles.btn_dep}>DEPOSIT</button>
+          <button onClick={() => setIsWithdrawFunds(true)} className={styles.btn_wid}>WITHDRAW</button>
+          <button onClick={() => setIsTransferFunds(true)} className={styles.btn_trnsf}>TRANSFER</button>
+        </div>
+    <button className={styles.add_benef} onClick={() => setIsAddBeneficiary(true)}>ADD BENEFICIARY</button>
       {isAddFunds && (
         <form onSubmit={addFunds}>
           <input type="number" placeholder="enter the amount" onChange={(e) => setFundsForm(e.target.value)} value={fundsForm} />
